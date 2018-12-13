@@ -23,7 +23,6 @@ env = env.unwrapped
 
 ###############################  DDPG  ####################################
 
-
 class DDPG(object):
     def __init__(self, a_dim, s_dim, a_bound,):
         self.memory = np.zeros((MEMORY_CAPACITY, s_dim * 2 + a_dim + 1), dtype=np.float32)

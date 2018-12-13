@@ -4,18 +4,16 @@ import tensorflow as tf
 import numpy as np
 import gym
 import time
-import matplotlib.pyplot as plt
-from cartpole_env import CartPoleEnv_adv
 
 #####################  hyper parameters  ####################
 
 MAX_EPISODES = 50000
 MAX_EP_STEPS =2500
-LR_A = 0.0025    # learning rate for actor
-LR_C = 0.005    # learning rate for critic
+LR_A = 0.00001    # learning rate for actor
+LR_C = 0.00002   # learning rate for critic
 GAMMA = 0.99    # reward discount
 TAU = 0.01  # soft replacement
-MEMORY_CAPACITY = 50000
+MEMORY_CAPACITY = 5000
 BATCH_SIZE = 256
 
 RENDER = True
@@ -56,7 +54,16 @@ class DDPG(object):
         # 这个网络不及时更新参数, 用于给出 Actor 更新参数时的 Gradient ascent 强度
         q_ = self._build_c(self.S_, a_, reuse=True, custom_getter=ema_getter)
 
-        a_loss = - tf.reduce_mean(q)  # maximize the q
+        with tf.variable_scope('Actor',reuse=True):
+         weight_a=tf.get_variable('l1/kernel')
+        with tf.variable_scope('Actor', reuse=True):
+         weight_b=tf.get_variable('a/kernel')
+
+
+        lamb=0.001
+
+        a_loss = - tf.reduce_mean(q)+lamb*tf.norm(weight_a)+lamb*tf.norm(weight_b)  # maximize the q
+
         self.atrain = tf.train.AdamOptimizer(self.LR_A).minimize(a_loss, var_list=a_params)#以learning_rate去训练，方向是minimize loss，调整列表参数，用adam
 
         with tf.control_dependencies(target_update):    # soft replacement happened at here
@@ -70,6 +77,7 @@ class DDPG(object):
 
     def choose_action(self, s):
         return self.sess.run(self.a, {self.S: s[np.newaxis, :]})[0]
+
 
     def learn(self,LR_A,LR_C):
         indices = np.random.choice(MEMORY_CAPACITY, size=BATCH_SIZE)
@@ -107,8 +115,9 @@ class DDPG(object):
 
     def save_result(self):
         # save_path = self.saver.save(self.sess, "Save/cartpole_g10_M1_m0.1_l0.5_tau_0.02.ckpt")
-        save_path = self.saver.save(self.sess, "Save/cartpole_g10_M1_m0.1_l0.5_tau_0.02_final.ckpt")
+        save_path = self.saver.save(self.sess, "Save/cartpole_g10_M1_m0.1_l0.5_tau_0.02_compression.ckpt")
         print("Save to path: ", save_path)
+
 ###############################  training  ####################################
 
 env = gym.make(ENV_NAME)
@@ -121,12 +130,12 @@ a_bound = env.action_space.high
 
 ddpg = DDPG(a_dim, s_dim, a_bound)
 
-var = 5  # control exploration
+var = 1  # control exploration
 t1 = time.time()
 win=0
 winmax=1
-max_reward=200000
-max_ewma_reward=120000
+max_reward=240000
+max_ewma_reward=180000
 # LR_A = 0.01    # learning rate for actor
 # LR_C = 0.02    # learning rate for critic
 for i in range(MAX_EPISODES):
@@ -189,6 +198,7 @@ for i in range(MAX_EPISODES):
             else:
                 LR_A *= .995
                 LR_C *= .999
+            # ddpg.save_result()
             break
 
         elif done:
@@ -202,6 +212,7 @@ for i in range(MAX_EPISODES):
                 print('Episode:', i, ' Reward: %i' % int(ep_reward), 'Explore: %.2f' % var, "break in : ", j, "due to",
                       "fall down","EWMA_step = ", EWMA_step[0, i + 1], "EWMA_reward = ", EWMA_reward[0, i + 1],"LR_A = ",LR_A)
             win=0
+            # ddpg.save_result()
             break
 
 print('Running time: ', time.time() - t1)

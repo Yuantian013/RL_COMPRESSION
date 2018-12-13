@@ -19,7 +19,11 @@ MEMORY_CAPACITY = 50000
 BATCH_SIZE = 256
 
 RENDER = True
-ENV_NAME = 'CartPole-v2'
+
+# ENV_NAME = 'CartPole-v2'
+env = CartPoleEnv_adv()
+# env = gym.make(ENV_NAME)
+env = env.unwrapped
 
 EWMA_p=0.95
 EWMA_step=np.zeros((1,MAX_EPISODES+1))
@@ -107,12 +111,9 @@ class DDPG(object):
 
     def save_result(self):
         # save_path = self.saver.save(self.sess, "Save/cartpole_g10_M1_m0.1_l0.5_tau_0.02.ckpt")
-        save_path = self.saver.save(self.sess, "Save/cartpole_g10_M1_m0.1_l0.5_tau_0.02_final.ckpt")
+        save_path = self.saver.save(self.sess, "Test_Model/cartpole_g10_M1_m0.1_l0.5_tau_0.02_final.ckpt")
         print("Save to path: ", save_path)
 ###############################  training  ####################################
-
-env = gym.make(ENV_NAME)
-env = env.unwrapped    # 取消限制
 # env.seed(1)   # 普通的 Policy gradient 方法, 使得回合的 variance 比较大, 所以我们选了一个好点的随机种子
 
 s_dim = env.observation_space.shape[0]
