@@ -2,19 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7e3f59a3-6d2a-4223-bcc8-1a0df64d4fa1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/PPO_COMPRESS.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PPO_train.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/View_para.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pendulum_env.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pendulum_ori.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DDPG_COMPRESS.py" beforeDir="false" afterPath="$PROJECT_DIR$/DDPG_COMPRESS.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DDPG_Train.py" beforeDir="false" afterPath="$PROJECT_DIR$/DDPG_Train.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DPPO.py" beforeDir="false" afterPath="$PROJECT_DIR$/DPPO_train.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model/checkpoint" beforeDir="false" afterPath="$PROJECT_DIR$/Model/checkpoint" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test_Model/cartpole_g10_M1_m0.1_l0.5_tau_0.02_final.ckpt.data-00000-of-00001" beforeDir="false" afterPath="$PROJECT_DIR$/Test_Model/cartpole_g10_M1_m0.1_l0.5_tau_0.02_final.ckpt.data-00000-of-00001" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test_Model/cartpole_g10_M1_m0.1_l0.5_tau_0.02_final.ckpt.index" beforeDir="false" afterPath="$PROJECT_DIR$/Test_Model/cartpole_g10_M1_m0.1_l0.5_tau_0.02_final.ckpt.index" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test_Model/cartpole_g10_M1_m0.1_l0.5_tau_0.02_final.ckpt.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Test_Model/cartpole_g10_M1_m0.1_l0.5_tau_0.02_final.ckpt.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -53,13 +41,13 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="9" />
-          <entry key="md" value="589" />
+          <entry key="md" value="678" />
           <entry key="py" value="760" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Markdown" value="589" />
+          <entry key="Markdown" value="678" />
           <entry key="PLAIN_TEXT" value="9" />
           <entry key="Python" value="760" />
         </counts>
@@ -80,10 +68,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PPO_COMPRESS.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
+            <state relative-caret-position="44">
               <caret line="106" column="68" lean-forward="true" selection-start-line="103" selection-start-column="12" selection-end-line="106" selection-end-column="68" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
@@ -113,12 +101,12 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="210">
-                <caret line="14" column="32" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
+              <first_editor relative-caret-position="150">
+                <caret line="10" column="48" selection-start-line="10" selection-start-column="48" selection-end-line="10" selection-end-column="48" />
               </first_editor>
               <second_editor />
             </state>
@@ -151,7 +139,6 @@
         <option value="$PROJECT_DIR$/DDPG_test.py" />
         <option value="$PROJECT_DIR$/DQN.py" />
         <option value="$PROJECT_DIR$/DPPO.py" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/DDPG_Train.py" />
         <option value="$USER_HOME$/gym/gym/envs/classic_control/pendulum_ml.py" />
         <option value="$PROJECT_DIR$/FUCK.py" />
@@ -163,6 +150,7 @@
         <option value="$PROJECT_DIR$/PPO_train.py" />
         <option value="$PROJECT_DIR$/View_para.py" />
         <option value="$PROJECT_DIR$/PPO_COMPRESS.py" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -434,7 +422,7 @@
     <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24969475" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24969475" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
@@ -444,7 +432,7 @@
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.15017879" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.23599523" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -498,16 +486,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
           <caret line="44" column="31" lean-forward="true" selection-start-line="44" selection-start-column="31" selection-end-line="44" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="210">
-            <caret line="14" column="32" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
-          </first_editor>
-          <second_editor />
         </state>
       </provider>
     </entry>
@@ -591,11 +569,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/PPO_COMPRESS.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
+        <state relative-caret-position="44">
           <caret line="106" column="68" lean-forward="true" selection-start-line="103" selection-start-column="12" selection-end-line="106" selection-end-column="68" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="150">
+            <caret line="10" column="48" selection-start-line="10" selection-start-column="48" selection-end-line="10" selection-end-column="48" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
