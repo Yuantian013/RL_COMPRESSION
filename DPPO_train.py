@@ -2,6 +2,9 @@ import tensorflow as tf
 import numpy as np
 import matplotlib.pyplot as plt
 import gym, threading, queue
+from pendulum_env import PendulumEnv
+from pendulum_ori import PendulumEnv_ori
+#Proximal Policy Optimization
 
 EP_MAX = 1000
 EP_LEN = 200
@@ -77,7 +80,7 @@ class PPO(object):
     def choose_action(self, s):
         s = s[np.newaxis, :]
         a = self.sess.run(self.sample_op, {self.tfs: s})[0]
-        return np.clip(a, -2, 2)
+        return np.clip(a, -3, 3)
 
     def get_v(self, s):
         if s.ndim < 2: s = s[np.newaxis, :]
@@ -87,7 +90,9 @@ class PPO(object):
 class Worker(object):
     def __init__(self, wid):
         self.wid = wid
-        self.env = gym.make(GAME).unwrapped
+        self.env = PendulumEnv()
+        self.env = self.env.unwrapped
+        # self.env = gym.make(GAME).unwrapped
         self.ppo = GLOBAL_PPO
 
     def work(self):
@@ -164,7 +169,8 @@ if __name__ == '__main__':
     plt.ylabel('Moving reward');
     plt.ion();
     plt.show()
-    env = gym.make('Pendulum-v0')
+    env = PendulumEnv()
+    env = env.unwrapped
     while True:
         s = env.reset()
         for t in range(300):

@@ -1,2 +1,2 @@
-model_checkpoint_path: "cartpole_g10_M1_m0.1_l0.5_tau_0.02_compression.ckpt"
-all_model_checkpoint_paths: "cartpole_g10_M1_m0.1_l0.5_tau_0.02_compression.ckpt"
+model_checkpoint_path: "PPO_compressed.ckpt"
+all_model_checkpoint_paths: "PPO_compressed.ckpt"

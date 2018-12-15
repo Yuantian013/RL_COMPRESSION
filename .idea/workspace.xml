@@ -2,10 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7e3f59a3-6d2a-4223-bcc8-1a0df64d4fa1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/DPPO.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DQN.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PPO_COMPRESS.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PPO_train.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/View_para.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pendulum_env.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pendulum_ori.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDPG_COMPRESS.py" beforeDir="false" afterPath="$PROJECT_DIR$/DDPG_COMPRESS.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DDPG_Train.py" beforeDir="false" afterPath="$PROJECT_DIR$/DDPG_Train.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DPPO.py" beforeDir="false" afterPath="$PROJECT_DIR$/DPPO_train.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model/checkpoint" beforeDir="false" afterPath="$PROJECT_DIR$/Model/checkpoint" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Test_Model/cartpole_g10_M1_m0.1_l0.5_tau_0.02_final.ckpt.data-00000-of-00001" beforeDir="false" afterPath="$PROJECT_DIR$/Test_Model/cartpole_g10_M1_m0.1_l0.5_tau_0.02_final.ckpt.data-00000-of-00001" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Test_Model/cartpole_g10_M1_m0.1_l0.5_tau_0.02_final.ckpt.index" beforeDir="false" afterPath="$PROJECT_DIR$/Test_Model/cartpole_g10_M1_m0.1_l0.5_tau_0.02_final.ckpt.index" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Test_Model/cartpole_g10_M1_m0.1_l0.5_tau_0.02_final.ckpt.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Test_Model/cartpole_g10_M1_m0.1_l0.5_tau_0.02_final.ckpt.meta" afterDir="false" />
@@ -17,9 +23,12 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/RL_COMPRESSION$View_para.coverage" NAME="View_para Coverage Results" MODIFIED="1544911940774" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/RL_COMPRESSION$DQN_TRAIN.coverage" NAME="DQN_TRAIN Coverage Results" MODIFIED="1544711013597" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/RL_COMPRESSION$DPPO_TRAIN.coverage" NAME="DPPO_TRAIN Coverage Results" MODIFIED="1544711259661" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/RL_COMPRESSION$DDPG_TRAIN.coverage" NAME="DDPG_TRAIN Coverage Results" MODIFIED="1544709476728" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/RL_COMPRESSION$PPO_TRAIN.coverage" NAME="PPO_TRAIN Coverage Results" MODIFIED="1544886065798" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/RL_COMPRESSION$DPPO_TRAIN.coverage" NAME="DPPO_TRAIN Coverage Results" MODIFIED="1544884533758" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/RL_COMPRESSION$DDPG_TRAIN.coverage" NAME="DDPG_TRAIN Coverage Results" MODIFIED="1544877884957" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/RL_COMPRESSION$PPO_COM.coverage" NAME="PPO_COM Coverage Results" MODIFIED="1544911510639" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="-1943158575">
@@ -32,25 +41,27 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="md" value="1" />
-          <entry key="py" value="6" />
+          <entry key="py" value="24" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Markdown" value="1" />
-          <entry key="Python" value="6" />
+          <entry key="Python" value="24" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="md" value="520" />
-          <entry key="py" value="25" />
+          <entry key="dummy" value="9" />
+          <entry key="md" value="589" />
+          <entry key="py" value="760" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Markdown" value="520" />
-          <entry key="Python" value="25" />
+          <entry key="Markdown" value="589" />
+          <entry key="PLAIN_TEXT" value="9" />
+          <entry key="Python" value="760" />
         </counts>
       </usages-collector>
     </session>
@@ -58,67 +69,58 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DDPG_COMPRESS.py">
+        <entry file="file://$PROJECT_DIR$/PPO_train.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-line="1" selection-end-column="23" />
+            <state relative-caret-position="1001">
+              <caret line="152" selection-start-line="152" selection-end-line="152" selection-end-column="17" />
               <folding>
-                <element signature="e#679#5357#0" />
+                <element signature="e#0#23#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DQN.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2230">
-              <caret line="42" column="47" selection-start-line="42" selection-start-column="47" selection-end-line="42" selection-end-column="47" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DPPO.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="e#550#573#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DDPG_Train.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="39" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="39" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="180">
-                <caret line="12" column="31" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
-              </first_editor>
-              <second_editor />
+        <entry file="file://$PROJECT_DIR$/PPO_COMPRESS.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="275">
+              <caret line="106" column="68" lean-forward="true" selection-start-line="103" selection-start-column="12" selection-end-line="106" selection-end-column="68" />
+              <folding>
+                <element signature="e#0#23#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cartpole_env.py">
+        <entry file="file://$PROJECT_DIR$/DDPG_COMPRESS.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="207" selection-start-line="207" selection-end-line="207" />
+            <state relative-caret-position="282">
+              <caret line="65" column="82" selection-start-line="65" selection-start-column="37" selection-end-line="65" selection-end-column="82" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/View_para.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="690">
+              <caret line="46" column="48" lean-forward="true" selection-start-line="46" selection-start-column="48" selection-end-line="46" selection-end-column="48" />
               <folding>
-                <element signature="e#320#8415#0" />
-                <element signature="e#8481#8552#0" />
+                <element signature="e#0#18#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="210">
+                <caret line="14" column="32" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -132,19 +134,35 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>save</find>
+      <find>Game</find>
+      <find>GAME</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/DDPG_COMPRESS.py" />
         <option value="$PROJECT_DIR$/cartpole_env.py" />
         <option value="$PROJECT_DIR$/DDPG_test.py" />
-        <option value="$PROJECT_DIR$/DDPG_Train.py" />
         <option value="$PROJECT_DIR$/DQN.py" />
         <option value="$PROJECT_DIR$/DPPO.py" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/DDPG_Train.py" />
+        <option value="$USER_HOME$/gym/gym/envs/classic_control/pendulum_ml.py" />
+        <option value="$PROJECT_DIR$/FUCK.py" />
+        <option value="$PROJECT_DIR$/pendulum_env.py" />
+        <option value="$USER_HOME$/gym/gym/envs/classic_control/pendulum.py" />
+        <option value="$PROJECT_DIR$/Test_Model/pendulum_ori.py" />
+        <option value="$PROJECT_DIR$/DPPO_train.py" />
+        <option value="$PROJECT_DIR$/DDPG_COMPRESS.py" />
+        <option value="$PROJECT_DIR$/PPO_train.py" />
+        <option value="$PROJECT_DIR$/View_para.py" />
+        <option value="$PROJECT_DIR$/PPO_COMPRESS.py" />
       </list>
     </option>
   </component>
@@ -154,9 +172,9 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="23" />
-    <option name="width" value="2284" />
+    <option name="width" value="1680" />
     <option name="height" value="954" />
   </component>
   <component name="ProjectLevelVcsManager">
@@ -175,6 +193,11 @@
               <item name="RL_COMPRESSION" type="b2602c69:ProjectViewProjectNode" />
               <item name="RL_COMPRESSION" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="RL_COMPRESSION" type="b2602c69:ProjectViewProjectNode" />
+              <item name="RL_COMPRESSION" type="462c0819:PsiDirectoryNode" />
+              <item name="Model" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -188,6 +211,11 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -200,7 +228,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.DPPO_TRAIN">
+  <component name="RunManager" selected="Python.View_para">
     <configuration name="DDPG_COM" type="PythonConfigurationType" factoryName="Python">
       <module name="RL_COMPRESSION" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -280,7 +308,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DPPO.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DPPO_train.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -311,8 +339,77 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="PPO_COM" type="PythonConfigurationType" factoryName="Python">
+      <module name="RL_COMPRESSION" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="$USER_HOME$/targetDirectory/bin/python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/PPO_COMPRESS.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="PPO_TRAIN" type="PythonConfigurationType" factoryName="Python">
+      <module name="RL_COMPRESSION" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="$USER_HOME$/targetDirectory/bin/python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/PPO_train.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="View_para" type="PythonConfigurationType" factoryName="Python">
+      <module name="RL_COMPRESSION" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="$USER_HOME$/targetDirectory/bin/python" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/View_para.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Python.DDPG_TRAIN" />
+      <item itemvalue="Python.PPO_TRAIN" />
+      <item itemvalue="Python.View_para" />
+      <item itemvalue="Python.PPO_COM" />
       <item itemvalue="Python.DQN_TRAIN" />
       <item itemvalue="Python.DPPO_TRAIN" />
       <item itemvalue="Python.DDPG_TEST" />
@@ -333,11 +430,11 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="2284" height="954" extended-state="0" />
+    <frame x="0" y="23" width="1680" height="954" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18242641" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24969475" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
@@ -347,12 +444,12 @@
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32777116" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.15017879" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="SciView" />
+      <window_info anchor="right" id="SciView" visible="true" weight="0.17887668" />
       <window_info anchor="right" id="Database" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -366,24 +463,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/cartpole_env.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="207" selection-start-line="207" selection-end-line="207" />
-          <folding>
-            <element signature="e#320#8415#0" />
-            <element signature="e#8481#8552#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DDPG_Train.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="39" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/DDPG_test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -394,39 +473,129 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DDPG_COMPRESS.py">
+    <entry file="file://$PROJECT_DIR$/cartpole_env.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="1" selection-end-column="23" />
-          <folding>
-            <element signature="e#679#5357#0" />
-          </folding>
+        <state relative-caret-position="380">
+          <caret line="155" column="35" selection-start-line="155" selection-start-column="35" selection-end-line="155" selection-end-column="35" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DPPO.py">
+    <entry file="file:///anaconda3/lib/python3.6/site-packages/tensorflow/python/client/session.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#550#573#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="187">
+          <caret line="1110" selection-start-line="1110" selection-end-line="1110" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DQN.py">
+    <entry file="file://$PROJECT_DIR$/FUCK.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2230">
-          <caret line="42" column="47" selection-start-line="42" selection-start-column="47" selection-end-line="42" selection-end-column="47" />
+        <state relative-caret-position="-11">
+          <caret line="28" column="9" selection-start-line="28" selection-start-column="9" selection-end-line="28" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/gym/gym/envs/classic_control/pendulum_ml.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="44" column="31" lean-forward="true" selection-start-line="44" selection-start-column="31" selection-end-line="44" selection-end-column="31" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="180">
-            <caret line="12" column="31" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
+          <first_editor relative-caret-position="210">
+            <caret line="14" column="32" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pendulum_ori.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DPPO_train.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="27" column="42" selection-start-line="27" selection-start-column="39" selection-end-line="27" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DQN.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2193">
+          <caret line="42" column="47" selection-start-line="42" selection-start-column="47" selection-end-line="42" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/gym/gym/envs/classic_control/pendulum.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="36" column="59" selection-start-line="36" selection-start-column="59" selection-end-line="36" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pendulum_env.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="45" column="29" selection-start-line="45" selection-start-column="29" selection-end-line="45" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DDPG_Train.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" selection-start-line="22" selection-end-line="25" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PPO_train.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1001">
+          <caret line="152" selection-start-line="152" selection-end-line="152" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DDPG_COMPRESS.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="65" column="82" selection-start-line="65" selection-start-column="37" selection-end-line="65" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View_para.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="690">
+          <caret line="46" column="48" lean-forward="true" selection-start-line="46" selection-start-column="48" selection-end-line="46" selection-end-column="48" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PPO_COMPRESS.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="106" column="68" lean-forward="true" selection-start-line="103" selection-start-column="12" selection-end-line="106" selection-end-column="68" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

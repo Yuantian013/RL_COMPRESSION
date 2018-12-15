@@ -4,6 +4,7 @@ import tensorflow as tf
 import numpy as np
 import gym
 import time
+from cartpole_env import CartPoleEnv_adv
 
 #####################  hyper parameters  ####################
 
@@ -120,8 +121,10 @@ class DDPG(object):
 
 ###############################  training  ####################################
 
-env = gym.make(ENV_NAME)
-env = env.unwrapped    # 取消限制
+# ENV_NAME = 'CartPole-v2'
+env = CartPoleEnv_adv()
+# env = gym.make(ENV_NAME)
+env = env.unwrapped
 # env.seed(1)   # 普通的 Policy gradient 方法, 使得回合的 variance 比较大, 所以我们选了一个好点的随机种子
 
 s_dim = env.observation_space.shape[0]
