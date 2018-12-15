@@ -5,10 +5,14 @@ For the test environment, we use OpenAI's cartpole, but make its actions continu
 # Table of Contents
 
 * Task
-  * DDPG(with our tuned hyper parameters, it could converge)(cartpole_g10_M1_m0.1_l0.5_tau_0.02_final.ckpt)
-  * Compressed DDPG(with our tuned hyper parameters, it could converge)(cartpole_g10_M1_m0.1_l0.5_tau_0.02_compression.ckpt)
-  * PPO(FINISHED)(PPO.ckpt)
-  * Compressed PPO(FINISHED)(PPO_compressed.ckpt)
+  * DDPG(with our tuned hyper parameters, it could converge)
+  (cartpole_g10_M1_m0.1_l0.5_tau_0.02_final.ckpt)
+  * Compressed DDPG(with our tuned hyper parameters, it could converge)
+  (cartpole_g10_M1_m0.1_l0.5_tau_0.02_compression.ckpt)
+  * PPO(FINISHED)
+  (PPO.ckpt)
+  * Compressed PPO(FINISHED)
+  (PPO_compressed.ckpt)
   * DPPO(NOT FINISHIED)
   * Compressed DPPO(NOT FINISHIED)
   * DQN(NOT FINISHED)
