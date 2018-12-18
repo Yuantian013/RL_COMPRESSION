@@ -13,8 +13,10 @@ For the test environment, we use OpenAI's cartpole, but make its actions continu
   (PPO.ckpt)
   * Compressed PPO(FINISHED)
   (PPO_compressed.ckpt)
-  * DPPO(NOT FINISHIED)
-  * Compressed DPPO(NOT FINISHIED)
+  * DPPO(FINISHIED)
+  (DPPO.ckpt)
+  * Compressed DPPO(FINISHIED)
+  (DPPO_compressed.ckpt)
   * DQN(FINISHED)
   (DQN.ckpt)
   * Compressed DQN(FINISHED)
@@ -25,3 +27,8 @@ For the test environment, we use OpenAI's cartpole, but make its actions continu
   (DQN_dueling_compressed.ckpt)
   * A3C(NOT FINISHED)
   * Compressed A3C(NOT FINISHED)
+ 
+ ## Reference
+
+[1] [Reinforcement-learning-with-tensorflow](https://github.com/MorvanZhou/Reinforcement-learning-with-tensorflow)  
+

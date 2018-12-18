@@ -1,2 +1,2 @@
-model_checkpoint_path: "DQN_dueling_compressed.ckpt"
-all_model_checkpoint_paths: "DQN_dueling_compressed.ckpt"
+model_checkpoint_path: "DPPO_compress.ckpt"
+all_model_checkpoint_paths: "DPPO_compress.ckpt"

@@ -41,13 +41,21 @@ class PPO(object):
         ratio = pi.prob(self.tfa) / (oldpi.prob(self.tfa) + 1e-5)
         surr = ratio * self.tfadv  # surrogate loss
 
+        with tf.variable_scope('pi',reuse=True):
+         weight_a=tf.get_variable('dense_1/kernel')
+        with tf.variable_scope('pi', reuse=True):
+         weight_b=tf.get_variable('dense_2/kernel')
+        with tf.variable_scope('pi', reuse=True):
+         weight_c = tf.get_variable('dense/kernel')
+        lamb = 0.01
         self.aloss = -tf.reduce_mean(tf.minimum(  # clipped surrogate objective
             surr,
-            tf.clip_by_value(ratio, 1. - EPSILON, 1. + EPSILON) * self.tfadv))
+            tf.clip_by_value(ratio, 1. - EPSILON, 1. + EPSILON) * self.tfadv))+lamb*tf.norm(weight_a)+lamb*tf.norm(weight_b)+lamb*tf.norm(weight_c)
 
         self.atrain_op = tf.train.AdamOptimizer(A_LR).minimize(self.aloss)
         self.sess.run(tf.global_variables_initializer())
         self.saver = tf.train.Saver()
+        self.saver.restore(self.sess, "Model/DPPO.ckpt")  # 1 0.1 0.5 0.001
 
     def update(self):
         global GLOBAL_UPDATE_COUNTER
@@ -85,7 +93,7 @@ class PPO(object):
         return self.sess.run(self.v, {self.tfs: s})[0, 0]
 
     def save_result(self):
-        save_path = self.saver.save(self.sess, "Model/DPPO.ckpt")
+        save_path = self.saver.save(self.sess, "Model/DPPO_compress.ckpt")
         print("Save to path: ", save_path)
 
 
