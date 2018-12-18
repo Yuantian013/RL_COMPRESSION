@@ -12,7 +12,7 @@ class PendulumEnv_ori(gym.Env):
 
     def __init__(self):
         self.max_speed=8
-        self.max_torque=2.
+        self.max_torque=3.
         self.dt=.05
         self.viewer = None
 
@@ -26,18 +26,24 @@ class PendulumEnv_ori(gym.Env):
         self.np_random, seed = seeding.np_random(seed)
         return [seed]
 
-    def step(self,u):
+    def step(self,u):# step(self,u):
         th, thdot = self.state # th := theta
 
-        g = 10.
-        m = 1.
-        l = 1.
+        g = np.random.normal(10,0)
+        m = np.random.normal(1,0)
+        #m= np.random.normal(2,0.1)
+        l = np.random.normal(1,0)
         dt = self.dt
-
         u = np.clip(u, -self.max_torque, self.max_torque)[0]
         self.last_u = u # for rendering
         costs = angle_normalize(th)**2 + .1*thdot**2 + .001*(u**2)
-
+        # costs = angle_normalize(th) ** 2
+        # if costs<0.01:
+        #     costs=-1000*(0.01-costs)
+        #     if thdot<0.01:
+        #         costs=costs*10
+        #         if u<0.01:
+        #             cost=costs*10
         newthdot = thdot + (-3*g/(2*l) * np.sin(th + np.pi) + 3./(m*l**2)*u) * dt
         newth = th + newthdot*dt
         newthdot = np.clip(newthdot, -self.max_speed, self.max_speed) #pylint: disable=E1111
@@ -85,6 +91,5 @@ class PendulumEnv_ori(gym.Env):
         if self.viewer:
             self.viewer.close()
             self.viewer = None
-
 def angle_normalize(x):
     return (((x+np.pi) % (2*np.pi)) - np.pi)
