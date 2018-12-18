@@ -25,8 +25,10 @@ For the test environment, we use OpenAI's cartpole, but make its actions continu
   (DQN_dueling.ckpt)
   * Compressed Duel_DQN(FINISHED)
   (DQN_dueling_compressed.ckpt)
-  * A3C(NOT FINISHED)
-  * Compressed A3C(NOT FINISHED)
+  * A3C(FINISHED)
+   (A3C.ckpt)
+  * Compressed A3C(FINISHED)
+  (A3C_compress.ckpt)
  
  ## Reference
 

@@ -1,2 +1,2 @@
-model_checkpoint_path: "DPPO_compress.ckpt"
-all_model_checkpoint_paths: "DPPO_compress.ckpt"
+model_checkpoint_path: "A3C_compress.ckpt"
+all_model_checkpoint_paths: "A3C_compress.ckpt"

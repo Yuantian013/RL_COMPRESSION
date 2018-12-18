@@ -12,7 +12,7 @@ OUTPUT_GRAPH = True
 LOG_DIR = './log'
 N_WORKERS = multiprocessing.cpu_count()
 MAX_EP_STEP = 200
-MAX_GLOBAL_EP = 2000
+MAX_GLOBAL_EP = 500
 GLOBAL_NET_SCOPE = 'Global_Net'
 UPDATE_GLOBAL_ITER = 10
 GAMMA = 0.9
@@ -58,7 +58,14 @@ class ACNet(object):
                     exp_v = log_prob * tf.stop_gradient(td)
                     entropy = normal_dist.entropy()  # encourage exploration
                     self.exp_v = ENTROPY_BETA * entropy + exp_v
-                    self.a_loss = tf.reduce_mean(-self.exp_v)
+                    with tf.variable_scope('actor', reuse=True):
+                        weight_a = tf.get_variable('la/kernel')
+                    with tf.variable_scope('actor', reuse=True):
+                        weight_b = tf.get_variable('mu/kernel')
+                    with tf.variable_scope('actor', reuse=True):
+                        weight_c = tf.get_variable('sigma/kernel')
+                    lamb=0.001
+                    self.a_loss = tf.reduce_mean(-self.exp_v)+lamb*(tf.norm(weight_c)+tf.norm(weight_b)+tf.norm(weight_a))
 
                 with tf.name_scope('choose_a'):  # use local params to choose action
                     self.A = tf.clip_by_value(tf.squeeze(normal_dist.sample(1), axis=[0, 1]), A_BOUND[0], A_BOUND[1])
@@ -73,7 +80,8 @@ class ACNet(object):
                 with tf.name_scope('push'):
                     self.update_a_op = OPT_A.apply_gradients(zip(self.a_grads, globalAC.a_params))
                     self.update_c_op = OPT_C.apply_gradients(zip(self.c_grads, globalAC.c_params))
-
+        self.saver = tf.train.Saver()
+        self.saver.restore(SESS, "Model/A3C.ckpt")  # 1 0.1 0.5 0.001
     def _build_net(self, scope):
         w_init = tf.random_normal_initializer(0., .1)
         with tf.variable_scope('actor'):
@@ -98,8 +106,12 @@ class ACNet(object):
         return SESS.run(self.A, {self.s: s})
     def save_result(self):
         self.saver = tf.train.Saver()
-        save_path = self.saver.save(SESS, "Model/A3C.ckpt")
+        save_path = self.saver.save(SESS, "Model/A3C_compress.ckpt")
         print("Save to path: ", save_path)
+    def reload(self):
+        self.saver.restore(SESS, "Model/A3C.ckpt")  # 1 0.1 0.5 0.001
+        print("Load A3C success ")
+
 
 
 class Worker(object):
@@ -178,7 +190,7 @@ if __name__ == "__main__":
 
     COORD = tf.train.Coordinator()
     SESS.run(tf.global_variables_initializer())
-
+    GLOBAL_AC.reload()
     if OUTPUT_GRAPH:
         if os.path.exists(LOG_DIR):
             shutil.rmtree(LOG_DIR)
