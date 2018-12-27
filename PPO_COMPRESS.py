@@ -7,8 +7,8 @@ from pendulum_ori import PendulumEnv_ori
 EP_MAX = 1000
 EP_LEN = 500
 GAMMA = 0.9
-A_LR = 0.0001
-C_LR = 0.0002
+A_LR = 0.000001
+C_LR = 0.000002
 BATCH = 32
 A_UPDATE_STEPS = 10
 C_UPDATE_STEPS = 10
@@ -50,7 +50,7 @@ class PPO(object):
          weight_b=tf.get_variable('dense_2/kernel')
         with tf.variable_scope('pi', reuse=True):
          weight_c = tf.get_variable('dense/kernel')
-        lamb = 0.01
+        lamb = 1
         with tf.variable_scope('loss'):
             with tf.variable_scope('surrogate'):
                 # ratio = tf.exp(pi.log_prob(self.tfa) - oldpi.log_prob(self.tfa))
@@ -73,7 +73,8 @@ class PPO(object):
 
         self.sess.run(tf.global_variables_initializer())
         self.saver = tf.train.Saver()
-        self.saver.restore(self.sess, "Model/PPO.ckpt")  # 1 0.1 0.5 0.001
+        self.saver.restore(self.sess, "Model/PPO_1.ckpt")  # 1 0.1 0.5 0.001
+
 
     def update(self, s, a, r):
         self.sess.run(self.update_oldpi_op)
@@ -101,7 +102,7 @@ class PPO(object):
 
     def _build_anet(self, name, trainable):
         with tf.variable_scope(name):
-            l1 = tf.layers.dense(self.tfs, 100, tf.nn.relu, trainable=trainable)
+            l1 = tf.layers.dense(self.tfs, 500, tf.nn.relu, trainable=trainable)
             mu = 2 * tf.layers.dense(l1, A_DIM, tf.nn.tanh, trainable=trainable)
             sigma = tf.layers.dense(l1, A_DIM, tf.nn.softplus, trainable=trainable)
             norm_dist = tf.distributions.Normal(loc=mu, scale=sigma)
@@ -117,7 +118,7 @@ class PPO(object):
         if s.ndim < 2: s = s[np.newaxis, :]
         return self.sess.run(self.v, {self.tfs: s})[0, 0]
     def save_result(self):
-        save_path = self.saver.save(self.sess, "Model/PPO_compressed.ckpt")
+        save_path = self.saver.save(self.sess, "Model/PPO_compressed_1.ckpt")
         print("Save to path: ", save_path)
 
 env = PendulumEnv_ori()

@@ -19,7 +19,7 @@ class DQN(object):
             self,
             n_actions,
             n_features,
-            learning_rate=0.0001,
+            learning_rate=0.00001,
             reward_decay=0.9,
             e_greedy=0.9,
             replace_target_iter=200,
@@ -59,7 +59,7 @@ class DQN(object):
         t_params = tf.get_collection('target_net_params')
         self.replace_target_op = [tf.assign(t, e) for t, e in zip(t_params, e_params)]
 
-        labda = 0.001
+        labda = 0.01
         with tf.variable_scope('l1', reuse=True):
             weight_a = tf.get_variable('w1')
         if self.dueling == False:
@@ -156,7 +156,7 @@ class DQN(object):
 
     def save_result(self):
         if self.dueling==False:
-            save_path = self.saver.save(self.sess, "Model/DQN_compressed.ckpt")
+            save_path = self.saver.save(self.sess, "Model/DQN_compressed_1.ckpt")
             print("Save to path: ", save_path)
         else:
             save_path = self.saver.save(self.sess, "Model/DQN_dueling_compressed.ckpt")
@@ -170,7 +170,7 @@ class DQN(object):
             self.saver.restore(self.sess, "Model/DQN_dueling.ckpt")  # 1 0.1 0.5 0.001
             print("Load dueling DQN success ")
 
-MAX_EPISODES=100
+MAX_EPISODES=500
 MAX_EP_STEPS=200
 MEMORY_SIZE = 3000
 EWMA_p=0.95
@@ -178,10 +178,10 @@ EWMA_step=np.zeros((1,MAX_EPISODES+1))
 EWMA_reward=np.zeros((1,MAX_EPISODES+1))
 iteration=np.zeros((1,MAX_EPISODES+1))
 RENDER = True
-# DQN_net = DQN(n_actions=25, n_features=3, memory_size=MEMORY_SIZE,
-#         e_greedy_increment=None, dueling=False)
-DQN_net= DQN(n_actions=25, n_features=3, memory_size=MEMORY_SIZE,
-        e_greedy_increment=None, dueling=True)
+DQN_net = DQN(n_actions=25, n_features=3, memory_size=MEMORY_SIZE,
+        e_greedy_increment=None, dueling=False)
+# DQN_net= DQN(n_actions=25, n_features=3, memory_size=MEMORY_SIZE,
+#         e_greedy_increment=None, dueling=True)
 DQN_net.reload()
 for i in range(MAX_EPISODES):
     iteration[0,i+1]=i+1

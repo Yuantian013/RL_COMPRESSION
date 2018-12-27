@@ -3,12 +3,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 import gym, threading, queue
 
-EP_MAX = 1000
+EP_MAX = 500
 EP_LEN = 200
 N_WORKER = 4  # parallel workers
 GAMMA = 0.9  # reward discount factor
-A_LR = 0.0001  # learning rate for actor
-C_LR = 0.0002  # learning rate for critic
+A_LR = 0.00001  # learning rate for actor
+C_LR = 0.00002  # learning rate for critic
 MIN_BATCH_SIZE = 64  # minimum batch size for updating PPO
 UPDATE_STEP = 10  # loop update operation n-steps
 EPSILON = 0.2  # for clipping surrogate objective
@@ -47,7 +47,7 @@ class PPO(object):
          weight_b=tf.get_variable('dense_2/kernel')
         with tf.variable_scope('pi', reuse=True):
          weight_c = tf.get_variable('dense/kernel')
-        lamb = 0.01
+        lamb = 0.1
         self.aloss = -tf.reduce_mean(tf.minimum(  # clipped surrogate objective
             surr,
             tf.clip_by_value(ratio, 1. - EPSILON, 1. + EPSILON) * self.tfadv))+lamb*tf.norm(weight_a)+lamb*tf.norm(weight_b)+lamb*tf.norm(weight_c)
@@ -93,7 +93,7 @@ class PPO(object):
         return self.sess.run(self.v, {self.tfs: s})[0, 0]
 
     def save_result(self):
-        save_path = self.saver.save(self.sess, "Model/DPPO_compress.ckpt")
+        save_path = self.saver.save(self.sess, "Model/DPPO_compress_1.ckpt")
         print("Save to path: ", save_path)
 
 
