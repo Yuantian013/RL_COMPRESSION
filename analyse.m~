@@ -1,7 +1,0 @@
-a=abs(dense_kernel_com)<1e-2;
-b=sum(sum(a))
-c=b/500
-%%
-figure(1);imshow(dense_kernel);figure(2);imshow(dense_kernel_com)
-%%
-plot(Actor_a_kernel,'r');hold on;plot(Actor_a_kernel_com,'b');legend('Second layer kernel','Compressed second layer kernel')

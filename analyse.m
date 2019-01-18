@@ -3,5 +3,6 @@ b=sum(sum(a))
 c=b/200
 %%
 figure(1);imagesc(Actor_a_kernel);figure(2);imagesc(Actor_a_kernel_com)
+figure(3);imagesc(Actor_l1_kernel);figure(4);imagesc(Actor_l1_kernel_com)
 %%
 plot(Actor_a_kernel,'r');hold on;plot(Actor_a_kernel_com,'b');legend('Second layer kernel','Compressed second layer kernel')
